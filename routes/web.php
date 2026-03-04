@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Categorias;
 use App\Http\Controllers\Clientes;
@@ -17,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 // Crear un usuario admin, solo usar una vez
 Route::get('/crear-admin', [AuthController::class, 'crearAdmin']);
 
-Route::get('/', [AuthController::class, 'index'])->name('login');
+// Página pública de inicio (anuncios)
+Route::get('/', [InicioController::class, 'index'])->name('inicio');
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/logear', [AuthController::class, 'logear'])->name('logear');
 
 
