@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <!-- Dashboard: todos los roles -->
+        <!-- Dashboard -->
         <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
                 <i class="bi bi-grid"></i>
@@ -9,79 +9,78 @@
             </a>
         </li>
 
-        <!-- Ventas: admin y cajero -->
-        @can('ver-ventas')
+        <!-- Gestión General -->
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#ventas-nav" data-bs-toggle="collapse" href="#">
-                <i class="fa-solid fa-cart-shopping"></i><span>Movimientos</span>
+            <a class="nav-link collapsed" data-bs-target="#gestion-nav" data-bs-toggle="collapse" href="#">
+                <i class="fa-solid fa-hospital"></i>
+                <span>Gestión</span>
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="ventas-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+            <ul id="gestion-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                <!-- Establecimiento -->
                 <li>
-                    <a href="{{ route('ventas-nueva') }}">
-                        <i class="bi bi-circle"></i><span>Registrar ingresos</span>
+                    <a href="{{ route('establecimiento') }}">
+                        <i class="bi bi-circle"></i>
+                        <span>Establecimiento</span>
                     </a>
                 </li>
+
+                <!-- Médico -->
                 <li>
-                    <a href="{{ route('detalle-venta') }}">
-                        <i class="bi bi-circle"></i><span>Registrar egresos</span>
+                    <a href="{{ route('medico') }}">
+                        <i class="bi bi-circle"></i>
+                        <span>Médico</span>
                     </a>
                 </li>
+
+                <!-- Paciente -->
+                <li>
+                    <a href="{{ route('paciente') }}">
+                        <i class="bi bi-circle"></i>
+                        <span>Paciente</span>
+                    </a>
+                </li>
+
             </ul>
         </li>
-        @endcan
 
-
-        <!-- Categorías y Productos: admin y bodeguero -->
+        <!-- Inventario -->
         @can('ver-inventario')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('categorias') }}">
-                <i class="fa-solid fa-list-check"></i>
+            <a class="nav-link collapsed" data-bs-target="#inventario-nav" data-bs-toggle="collapse" href="#">
+                <i class="fa-solid fa-pills"></i>
                 <span>Inventario</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#productos-nav" data-bs-toggle="collapse" href="#">
-                <i class="fa-solid fa-window-restore"></i><span>Ujieres</span>
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="productos-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+            <ul id="inventario-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                <!-- Medicamento -->
                 <li>
-                    <a href="{{ route('productos') }}">
-                        <i class="bi bi-circle"></i><span>Administrar productos</span>
+                    <a href="{{ route('medicamento') }}">
+                        <i class="bi bi-circle"></i>
+                        <span>Medicamento</span>
                     </a>
                 </li>
-                @can('ver-admin')
-                <li>
-                    <a href="{{ route('reportes_productos') }}">
-                        <i class="bi bi-circle"></i><span>Reportes de productos</span>
-                    </a>
-                </li>
-                @endcan
+
             </ul>
-        </li>
-
-        <!-- Compras y Proveedores: admin y bodeguero -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('compras') }}">
-                <i class="fa-solid fa-shop"></i>
-                <span>Compras</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('proveedores') }}">
-                <i class="fa-solid fa-truck"></i>
-                <span>Proveedores</span>
-            </a>
         </li>
         @endcan
 
-        <!-- Usuarios: solo admin -->
+        <!-- Recetas -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('receta') }}">
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Recetas</span>
+            </a>
+        </li>
+
+        <!-- Usuarios (solo admin) -->
         @can('ver-usuarios')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('usuarios') }}">
+            <a class="nav-link" href="{{ route('usuarios') }}">
                 <i class="fa-solid fa-users"></i>
                 <span>Usuarios</span>
             </a>

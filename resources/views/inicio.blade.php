@@ -9,7 +9,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">TEO</a>
+    <a class="navbar-brand" href="#">HOSPITALSV</a>
 
     <div class="dropdown ms-auto">
       <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">

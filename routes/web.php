@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/crear-admin', [AuthController::class, 'crearAdmin']);
 
 // Página pública de inicio (anuncios)
-Route::get('/', [InicioController::class, 'index'])->name('inicio');
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+
+Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/logear', [AuthController::class, 'logear'])->name('logear');
 
 
@@ -35,6 +35,27 @@ Route::middleware('auth')->group(function () {
     // 👤 Perfil del usuario autenticado
     Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
     Route::post('/perfil/update', [PerfilController::class, 'update'])->name('perfil.update');
+
+    // 📍 Nuevas rutas requeridas
+    Route::get('/establecimiento', function () {
+        return view('establecimiento.index');
+    })->name('establecimiento');
+
+    Route::get('/medico', function () {
+        return view('medico.index');
+    })->name('medico');
+
+    Route::get('/medicamento', function () {
+        return view('medicamento.index');
+    })->name('medicamento');
+
+    Route::get('/paciente', function () {
+        return view('paciente.index');
+    })->name('paciente');
+
+    Route::get('/receta', function () {
+        return view('receta.index');
+    })->name('receta');
 });
 
 
